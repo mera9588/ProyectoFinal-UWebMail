@@ -19,7 +19,7 @@
             <strong> Registro de Usuario </strong>
           </div>
           <div class="panel-body">
-            <form role="form" method="post" action="/auth/register">
+            <form method="POST" action="/auth/register">
               {!! csrf_field() !!}
               <fieldset>
                 <div class="row">
@@ -29,7 +29,7 @@
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-user"></i>
                         </span> 
-                        <input class="form-control" placeholder="Nombre" name="name" type="text" id="name" autofocus required/>
+                        <input class="form-control" placeholder="Nombre" name="name" type="text" value="{{ old('name') }}" autofocus required/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -37,7 +37,7 @@
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-user"></i>
                         </span> 
-                        <input class="form-control" placeholder="Apellido" name="lastname" type="text" id="lastname" required/>
+                        <input class="form-control" placeholder="Apellido" name="lastname" type="text" value="{{ old('lastname') }}" required/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -45,7 +45,7 @@
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-user"></i>
                         </span> 
-                        <input class="form-control" placeholder="Email" name="email" type="email" id="email" required/>
+                        <input class="form-control" placeholder="Email" name="email" type="email" value="{{ old('email') }}" required/>
                       </div>
                     </div>  
                     <div class="form-group">
@@ -53,11 +53,19 @@
                         <span class="input-group-addon">
                           <i class="glyphicon glyphicon-lock"></i>
                         </span>
-                        <input class="form-control" placeholder="Contraseña" name="password" type="password" id="password" value="" required/>
+                        <input class="form-control" placeholder="Contraseña" name="password" type="password" required/>
                       </div>
                     </div>
                     <div class="form-group">
-                      <input id="saveClient" type="submit" value="Registrarse" class="btn btn-primary btn-block"/>
+                      <div class="input-group">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input class="form-control" placeholder="Confirmar Contraseña" name="password_confirmation" type="password" required/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" value="Registrarse" class="btn btn-primary btn-block"/>
                     </div>
                     <div>
                       <input type="button" class="btn btn-secundary pull-rigth btn-block" value="Cancelar" onClick="location.href='login'">

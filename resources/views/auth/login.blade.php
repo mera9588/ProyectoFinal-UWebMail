@@ -30,7 +30,7 @@
             <strong> Proyecto Web Mail </strong>
           </div>
           <div class="panel-body">
-            <form role="form" action="/auth/login" method="POST">
+            <form action="/auth/login" method="POST">
               {!! csrf_field() !!}
               <fieldset>
                 <div class="row">
@@ -52,7 +52,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <input type="submit" id="btnLogin" class="btn btn-lg btn-primary btn-block" value="Iniciar Sesión">
+                      <input type="submit" class="btn btn-lg btn-primary btn-block" value="Iniciar Sesión" >
                     </div>
                   </div>
                 </div>

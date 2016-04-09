@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'inbox';
 
     /**
      * Create a new authentication controller instance.
@@ -66,6 +66,7 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'lastname' => $data['lastname'],
             'password' => bcrypt($data['password']),
         ]);
     }
