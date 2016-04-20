@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
         <form class="navbar-form navbar-left" method="GET" role="search">
           <div class="form-group">
-            <input type="text" name="q" class="form-control" placeholder="Buscar">
+            <input type="text" name="search" class="form-control" placeholder="Buscar">
           </div>
           <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
         </form>
@@ -77,7 +77,6 @@
                 <div class="form-group">
                   <div class="col-lg-offset-2 col-lg-10">
                     <button class="btn btn-send" type="button" id="enviarCorreo">Guardar</button>
-                    <button class="btn btn-danger" type="button" id="btnDelete">Eliminar</button>
                   </div>
                 </div>
               </form>
@@ -104,7 +103,21 @@
           <th>Fecha</th>
         </tr>
       </thead>
-      <tbody id="correo_table"></tbody>
+      <tbody>
+        @foreach ($emails as $mail)
+        <tr>
+          <td>{{$mail->destinatario}}</td>
+          <td>{{$mail->asunto}}</td>
+          <td>{{$mail->fecha}}</td>
+          <td><a class="btn btn-info" href="{{URL::route('mail.edit',$mail->id)}}" role="button">Edit</a></td>
+          <td>
+            {!!  Form::open(['route'=>['mail.destroy' ,$mail->id],'method'=>'delete'])!!}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            {!!Form::close()!!}
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
     </table>
   </div>
 
