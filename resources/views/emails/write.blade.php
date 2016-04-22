@@ -95,35 +95,45 @@
         Bandeja de Salida
       </div>
     </div>
-    <table class="table" id="tbl1">
-      <thead>
-        <tr>
-          <th>Destinatario</th>
-          <th>Asunto</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($emails as $emails)
-        <tr>
-          <td>{{$emails->destinatario}}</td>
-          <td>{{$emails->asunto}}</td>
-          <td>{{$emails->fecha}}</td>
-
-        </tr>
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
         @endforeach
-      </tbody>
-    </table>
+      </ul>
+    </div>
+    @endif
+    <div class ="container col-xs-8">
+      <form action='/emails' method="POST">
+        {!! csrf_field() !!}
+        <div class="form-group">
+          <label for="exampleInputEmail1">destino</label>
+          {!!Form::emails('destino',null,['class'=>'form-control','placeholder'=>'Address'])!!}
+        </div>
+        <div class="form-group">
+          <label for="example">asunto</label>
+          {!!Form::text('asunto',null,['class'=>'form-control','placeholder'=>'Subject'])!!}
+        </div>
+        <div class="form-group">
+          <label for="example">mensaje</label>
+          {!!Form::textarea ('mensaje',null,['class'=>'form-control','placeholder'=>'Write the message here'])!!}
+        </div>
+        <button type="submit" class="btn btn-danger">Guardar</button>
+      </form>
+    </div>
   </div>
+</div>
+</div>
 
-  <footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
-    <p>
-      <hr class="divider">
-      Copyright &COPY; 2016
-    </p>
-  </footer>
+<footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+  <p>
+    <hr class="divider">
+    Copyright &COPY; 2016
+  </p>
+</footer>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> 

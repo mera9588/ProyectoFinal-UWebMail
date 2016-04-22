@@ -95,35 +95,33 @@
         Bandeja de Salida
       </div>
     </div>
-    <table class="table" id="tbl1">
-      <thead>
-        <tr>
-          <th>Destinatario</th>
-          <th>Asunto</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($emails as $emails)
-        <tr>
-          <td>{{$emails->destinatario}}</td>
-          <td>{{$emails->asunto}}</td>
-          <td>{{$emails->fecha}}</td>
-
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
+    {!!  Form::model($emails ,['route'=>['emails.update' ,$emails],'method'=>'put'])!!}
+    <div class="form-group">
+      <label for="exampleInputEmail1">destino</label>
+      {!!Form::text('destino',null,['class'=>'form-control','placeholder'=>'example@gmail.com,example2@hotmail.com'])!!}
+    </div>
+    <div class="form-group">
+      <label for="example">asunto</label>
+      {!!Form::text('asunto',null,['class'=>'form-control','placeholder'=>'Subject'])!!}
+    </div>
+    <div class="form-group">
+      <label for="example">mensaje</label>
+      {!!Form::textarea ('mensaje',null,['class'=>'form-control','placeholder'=>'Write the message here'])!!}
+    </div>
+    {!!Form::open(['route'=>['emails.update' ,$emails->id],'method'=>'update'])!!}
+    <button type="submit" class="btn btn-danger">Editar</button>
+    {!!Form::close()!!}
   </div>
+</div>
 
-  <footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
-    <p>
-      <hr class="divider">
-      Copyright &COPY; 2016
-    </p>
-  </footer>
+<footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+  <p>
+    <hr class="divider">
+    Copyright &COPY; 2016
+  </p>
+</footer>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

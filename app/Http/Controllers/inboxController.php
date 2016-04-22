@@ -17,5 +17,4 @@ class inboxController extends Controller
     	return view('inbox',compact('emails'));
     }
 
-
 }
