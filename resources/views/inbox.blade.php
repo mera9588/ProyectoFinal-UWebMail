@@ -45,46 +45,8 @@
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 sidebar">
     <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="#myModal" data-toggle="modal" title="Compose" class="btn btn-compose">Nuevo</a></li>
-      <!-- Modal -->
-      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button aria-hidden="true" data-dismiss="modal" class="close" type="button" id="closeModal">×</button>
-              <h4 class="modal-title">Redactar</h4>
-            </div>
-            <div class="modal-body">
-              <form role="form" class="form-horizontal">
-                <div class="form-group">
-                  <label class="col-lg-2 control-label">Para</label>
-                  <div class="col-lg-10">
-                    <input type="email" id="inputEmail" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 control-label">Asunto</label>
-                  <div class="col-lg-10">
-                    <input type="text" id="inputAsunto" class="form-control">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 control-label">Mensaje</label>
-                  <div class="col-lg-10">
-                    <textarea rows="10" cols="30" class="form-control" id="inputMensaje" name=""></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-10">
-                    <button class="btn btn-send" type="button" id="enviarCorreo">Guardar</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
-      <li><a href="inbox.html">Bandeja salida</a></li>
+      <li class="active"><a href="{{URL::to('emails/create')}}" title="Compose" class="btn btn-compose" role="button">Nuevo</a></li>
+      <li><a href="{{URL::to('inbox')}}">Bandeja salida</a></li>
       <li><a href="inbox2.html">Bandeja enviados</a></li>
     </ul>
   </div>
@@ -109,8 +71,8 @@
           <td>{{$emails->destinatario}}</td>
           <td>{{$emails->asunto}}</td>
           <td>{{$emails->fecha}}</td>
-          <td><a class="btn btn-info" href="{{URL::route('emails.edit',$emails->id)}}" role="button">Edit</a></td>
-          <td>{!!  Form::open(['route'=>['emails.destroy' ,$emails->id],'method'=>'delete'])!!}
+          <td><a class="btn btn-info" href="{{URL::route('emails.edit',$emails->id)}}" role="button">Editar</a></td>
+          <td>{!!Form::open(['route'=>['emails.destroy', $emails->id],'method'=>'delete'])!!}
             <button type="submit" class="btn btn-danger">Delete</button>
             {!!Form::close()!!}
           </td>

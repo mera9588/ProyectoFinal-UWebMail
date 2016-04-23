@@ -35,5 +35,6 @@ Route::get('/', function () {
     Route::get('auth/register', 'Auth\AuthController@getRegister');
     Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::resource('inbox', 'inboxController');
-    Route::resource('emails', 'MailController');    
+    Route::resource('emails', 'MailController');
+        
 });

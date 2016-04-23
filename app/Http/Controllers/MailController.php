@@ -47,7 +47,7 @@ return Redirect::to('inbox')->with('status', '¡Mensaje actualizado con éxito!'
 
 public function create()
 {
-return view('emails/write');
+return view('emails.write');
 }
 
 public function show($id)
