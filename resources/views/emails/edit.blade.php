@@ -98,7 +98,7 @@
     {!!  Form::model($emails ,['route'=>['emails.update' ,$emails],'method'=>'put'])!!}
     <div class="form-group">
       <label for="exampleInputEmail1">destino</label>
-      {!!Form::text('destino',null,['class'=>'form-control','placeholder'=>'example@gmail.com,example2@hotmail.com'])!!}
+      {!!Form::text('destinatario',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])!!}
     </div>
     <div class="form-group">
       <label for="example">asunto</label>

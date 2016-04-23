@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Redirect;
 use App\Http\Requests;
-use App\Mail;
 use Session;
 use Illuminate\Routing\Controller;
+use App\Emails;
 
 class MailController extends Controller
 {
@@ -38,7 +38,7 @@ en la base de datos.
 public function update(Request $request, $id)
 {
 $emails=Emails::find($id);
-$emails->destino=$request->destino;
+$emails->destinatario=$request->destinatario;
 $emails->asunto=$request->asunto;
 $emails->mensaje=$request->mensaje;
 $emails->save();
@@ -61,7 +61,7 @@ Función para crear un nuevo correo y guardarlo en la base de datos.
 public function store(Request $request)
 {
     $emails = new Emails;
-    $emails->destino=$request->destino;
+    $emails->destinatario=$request->destinatario;
     $emails->asunto=$request->asunto;
     $emails->mensaje=$request->mensaje;
     $emails->save();
