@@ -38,6 +38,6 @@ Route::get('/', function () {
     Route::get('sent', 'inboxController@sent');
     Route::get('draft', 'inboxController@draft');
     Route::resource('emails', 'MailController');
-
+    Route::get('mail/verificar/{remember_token}','MailController@verificar');
 
 });

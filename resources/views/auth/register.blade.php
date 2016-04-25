@@ -65,7 +65,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <input type="submit" value="Registrarse" class="btn btn-primary btn-block"/>
+                      <button type="submit" class="btn btn-primary btn-block"/>Registrarse</button>
                     </div>
                     <div>
                       <input type="button" class="btn btn-secundary pull-rigth btn-block" value="Cancelar" onClick="location.href='login'">
