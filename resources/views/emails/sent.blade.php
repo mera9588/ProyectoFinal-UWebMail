@@ -55,7 +55,7 @@
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Bandeja de Salida
+        Bandeja Enviados
       </div>
     </div>
     <table class="table" id="tbl1">

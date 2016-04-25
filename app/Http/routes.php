@@ -34,7 +34,10 @@ Route::get('/', function () {
 
     Route::get('auth/register', 'Auth\AuthController@getRegister');
     Route::post('auth/register', 'Auth\AuthController@postRegister');
-    Route::resource('inbox', 'inboxController');
+    Route::get('inbox', 'inboxController@index');
+    Route::get('sent', 'inboxController@sent');
+    Route::get('draft', 'inboxController@draft');
     Route::resource('emails', 'MailController');
-        
+
+
 });

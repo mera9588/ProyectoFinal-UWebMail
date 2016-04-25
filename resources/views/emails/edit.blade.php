@@ -47,7 +47,8 @@
     <ul class="nav nav-pills nav-stacked">
       <li class="active"><a href="{{URL::to('emails/create')}}" title="Compose" class="btn btn-compose">Nuevo</a></li>
       <li><a href="{{URL::to('inbox')}}">Bandeja salida</a></li>
-      <li><a href="inbox2.html">Bandeja enviados</a></li>
+      <li><a href="{{URL::to('draft')}}">Bandeja borrador</a></li>
+      <li><a href="{{URL::to('sent')}}">Bandeja enviados</a></li>
     </ul>
   </div>
 

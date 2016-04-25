@@ -85,14 +85,15 @@
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
       <li><a href="{{URL::to('inbox')}}">Bandeja salida</a></li>
-      <li><a href="inbox2.html">Bandeja enviados</a></li>
+      <li><a href="{{URL::to('draft')}}">Bandeja borrador</a></li>
+      <li><a href="{{URL::to('sent')}}">Bandeja enviados</a></li>
     </ul>
   </div>
 
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Bandeja de Salida
+        Redactar
       </div>
     </div>
     @if(count($errors)>0)

@@ -16,6 +16,17 @@ class inboxController extends Controller
 
     	return view('inbox',compact('emails'));
     }
-    
+
+    public function sent(){
+    	$emails = DB::select('select * from emails');
+
+    	return view('emails/sent',compact('emails'));
+    }
+
+    public function draft(){
+    	$emails = DB::select('select * from emails');
+
+    	return view('emails/draft',compact('emails'));
+    }
 
 }
