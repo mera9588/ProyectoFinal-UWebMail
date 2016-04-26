@@ -26,18 +26,16 @@ Route::get('/', function () {
 |
 */
 
-	Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web']], function () {
     //
     Route::get('auth/login', 'Auth\AuthController@getLogin');
-    Route::post('auth/login', 'Auth\AuthController@postLogin');
+    Route::post('login', 'UserController@login');
     Route::get('logout', array('as' => 'logout', 'uses' => 'Auth\AuthController@logout'));
-
     Route::get('auth/register', 'Auth\AuthController@getRegister');
     Route::post('auth/register', 'Auth\AuthController@postRegister');
     Route::get('inbox', 'inboxController@index');
-    Route::get('sent', 'inboxController@sent');
-    Route::get('draft', 'inboxController@draft');
+    Route::get('sent', 'MailController@sent');
+    Route::get('draft', 'MailController@draft');
     Route::resource('emails', 'MailController');
     Route::get('mail/verificar/{remember_token}','MailController@verificar');
-
 });

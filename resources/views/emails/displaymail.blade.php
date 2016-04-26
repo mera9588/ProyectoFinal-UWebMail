@@ -45,7 +45,7 @@
 
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 sidebar">
     <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="{{URL::to('emails/create')}}" title="Compose" class="btn btn-compose" role="button">Nuevo</a></li>
+      <li class="active"><a href="{{URL::to('emails/create')}}" title="Compose" class="btn btn-compose">Nuevo</a></li>
       <li><a href="{{URL::to('inbox')}}">Bandeja salida</a></li>
       <li><a href="{{URL::to('draft')}}">Bandeja borrador</a></li>
       <li><a href="{{URL::to('sent')}}">Bandeja enviados</a></li>
@@ -55,42 +55,33 @@
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Bandeja de Enviados
+        Bandeja de Salida
       </div>
     </div>
-    <table class="table" id="tbl1">
-      <thead>
-        <tr>
-          <th>Destinatario</th>
-          <th>Asunto</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($emails as $correos)
-        <tr>
-          <td>{{$correos->destinatario}}</td>
-          <td>{{$correos->asunto}}</td>
-          <td>{{$correos->fecha}}</td>
-          <td><a class="btn btn-info" href="{{URL::route('emails.show',$correos->id)}}" role="button">Leer</a></td>
-          <td>{!!Form::open(['route'=>['emails.destroy', $correos->id], 'method'=>'delete'])!!}
-            <button type="submit" class="btn btn-danger">Borrar</button>
-            {!!Form::close()!!}
-          </td>
-        </tr>
-        @endforeach
-      </tbody>
-    </table>
+    {!!Form::model($emails, ['route'=>['emails.update', $emails], 'method'=>'put'])!!}
+    <div class="form-group">
+      <label for="exampleInputEmail1">destino</label>
+      {!!Form::text('destinatario', null, ['disabled', 'class'=>'form-control', 'placeholder'=>'example@gmail.com'])!!}
+    </div>
+    <div class="form-group">
+      <label for="example">asunto</label>
+      {!!Form::text('asunto', null, ['disabled', 'class'=>'form-control', 'placeholder'=>'Subject'])!!}
+    </div>
+    <div class="form-group">
+      <label for="example">mensaje</label>
+      {!!Form::textarea ('mensaje', null, ['disabled', 'class'=>'form-control', 'placeholder'=>'Write the message here'])!!}
+    </div>
   </div>
+</div>
 
-  <footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
-    <p>
-      <hr class="divider">
-      Copyright &COPY; 2016
-    </p>
-  </footer>
+<footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+  <p>
+    <hr class="divider">
+    Copyright &COPY; 2016
+  </p>
+</footer>
 
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -110,15 +110,15 @@
         {!! csrf_field() !!}
         <div class="form-group">
           <label for="exampleInputEmail1">Para</label>
-          {!!Form::email('destinatario',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])!!}
+          {!!Form::email('destinatario', null, ['class'=>'form-control', 'placeholder'=>'example@gmail.com'])!!}
         </div>
         <div class="form-group">
           <label for="example">Asunto</label>
-          {!!Form::text('asunto',null,['class'=>'form-control','placeholder'=>'Asunto'])!!}
+          {!!Form::text('asunto', null, ['class'=>'form-control', 'placeholder'=>'Asunto'])!!}
         </div>
         <div class="form-group">
           <label for="example">Mensaje</label>
-          {!!Form::textarea('mensaje',null,['class'=>'form-control','placeholder'=>'Digite su mensaje'])!!}
+          {!!Form::textarea('mensaje', null, ['class'=>'form-control', 'placeholder'=>'Digite su mensaje'])!!}
         </div>
         <div style="text-align:right">
           <button type="submit" class="btn btn-send">Guardar</button>

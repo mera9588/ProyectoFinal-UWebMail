@@ -30,7 +30,7 @@
             <strong> Proyecto Web Mail </strong>
           </div>
           <div class="panel-body">
-            <form action="/auth/login" method="POST">
+            <form action="/login" method="POST">
               {!! csrf_field() !!}
               <fieldset>
                 <div class="row">

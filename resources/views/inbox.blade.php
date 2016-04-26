@@ -72,9 +72,10 @@
           <td>{{$emails->destinatario}}</td>
           <td>{{$emails->asunto}}</td>
           <td>{{$emails->fecha}}</td>
+          <td><a class="btn btn-info" href="{{URL::route('emails.show',$emails->id)}}" role="button">Leer</a></td>
           <td><a class="btn btn-info" href="{{URL::route('emails.edit',$emails->id)}}" role="button">Editar</a></td>
           <td>{!!Form::open(['route'=>['emails.destroy', $emails->id],'method'=>'delete'])!!}
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" class="btn btn-danger">Borrar</button>
             {!!Form::close()!!}
           </td>
         </tr>

@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 class conexion extends Controller
 {
-    //Metodo para iniciar sesion en la pantalla inbox.
+    //Método para iniciar sesion en la pantalla inbox.
     public function inicioSesion(){
     	return view('inbox');
     }

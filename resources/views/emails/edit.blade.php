@@ -58,20 +58,20 @@
         Bandeja de Salida
       </div>
     </div>
-    {!!  Form::model($emails ,['route'=>['emails.update' ,$emails],'method'=>'put'])!!}
+    {!!  Form::model($emails ,['route'=>['emails.update', $emails], 'method'=>'put'])!!}
     <div class="form-group">
       <label for="exampleInputEmail1">destino</label>
-      {!!Form::text('destinatario',null,['class'=>'form-control','placeholder'=>'example@gmail.com'])!!}
+      {!!Form::text('destinatario', null, ['class'=>'form-control', 'placeholder'=>'example@gmail.com'])!!}
     </div>
     <div class="form-group">
       <label for="example">asunto</label>
-      {!!Form::text('asunto',null,['class'=>'form-control','placeholder'=>'Subject'])!!}
+      {!!Form::text('asunto', null, ['class'=>'form-control', 'placeholder'=>'Asunto'])!!}
     </div>
     <div class="form-group">
       <label for="example">mensaje</label>
-      {!!Form::textarea ('mensaje',null,['class'=>'form-control','placeholder'=>'Write the message here'])!!}
+      {!!Form::textarea ('mensaje', null, ['class'=>'form-control', 'placeholder'=>'Digite su mensaje'])!!}
     </div>
-    {!!Form::open(['route'=>['emails.update' ,$emails->id],'method'=>'update'])!!}
+    {!!Form::open(['route'=>['emails.update', $emails->id], 'method'=>'update'])!!}
     <button type="submit" class="btn btn-danger">Editar</button>
     {!!Form::close()!!}
   </div>
