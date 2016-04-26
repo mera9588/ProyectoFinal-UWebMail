@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         // Commands\Inspire::class,
+    \App\Console\commands\SentMail::class,
     ];
 
     /**
@@ -24,6 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('SentMail')
+                 ->everyFiveMinutes();
         // $schedule->command('inspire')
         //          ->hourly();
     }

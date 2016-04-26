@@ -10,6 +10,6 @@ la base de datos y los envía al controlador.
 class Emails extends Model
 {
 	protected $table = 'emails';
-	protected $fillable = [ 'destinatario', 'asunto', 'fecha', 'mensaje'];
+	protected $fillable = [ 'destinatario', 'asunto', 'fecha', 'mensaje','estado'];
 	public $timestamps = false;
 }

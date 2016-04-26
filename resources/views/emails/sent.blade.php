@@ -55,7 +55,7 @@
   <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 content">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Bandeja Enviados
+        Bandeja de Enviados
       </div>
     </div>
     <table class="table" id="tbl1">
@@ -67,13 +67,13 @@
         </tr>
       </thead>
       <tbody>
-        @foreach ($emails as $emails)
+        @foreach ($emails as $correos)
         <tr>
-          <td>{{$emails->destinatario}}</td>
-          <td>{{$emails->asunto}}</td>
-          <td>{{$emails->fecha}}</td>
-          <td><a class="btn btn-info" href="{{URL::route('emails.edit',$emails->id)}}" role="button">Editar</a></td>
-          <td>{!!Form::open(['route'=>['emails.destroy', $emails->id],'method'=>'delete'])!!}
+          <td>{{$correos->destinatario}}</td>
+          <td>{{$correos->asunto}}</td>
+          <td>{{$correos->fecha}}</td>
+          <td><a class="btn btn-info" href="{{URL::route('emails.edit',$correos->id)}}" role="button">Editar</a></td>
+          <td>{!!Form::open(['route'=>['emails.destroy', $correos->id],'method'=>'delete'])!!}
             <button type="submit" class="btn btn-danger">Delete</button>
             {!!Form::close()!!}
           </td>
